@@ -31,13 +31,13 @@ impl<'a> CharsetProber for EUCTWProber<'a> {
         self.base.feed(byte_str)
     }
     fn get_charset(&self) -> String {
-        "EUC-KR".to_string()
+        "EUC-TW".to_string()
     }
     fn get_confidence(&self) -> f32 {
         self.base.get_confidence()
     }
     fn get_language(&self) -> String {
-        "Korean".to_string()
+        "Chinese".to_string()
     }
     fn get_state(&self) -> &ProbingState {
         self.base.get_state()

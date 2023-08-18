@@ -99,7 +99,7 @@ const TEST_TABLE:&[(&str, &str, f32, &str)] = &[
     ("tests/data/EUC-KR/_mozilla_bug9357_text.html","EUC-KR", 0.99, "Korean"),
     ("tests/data/EUC-KR/_ude_euc1.txt","EUC-KR", 0.99, "Korean"),
     ("tests/data/EUC-KR/_ude_euc2.txt","EUC-KR", 0.99, "Korean"),
-    ("tests/data/EUC-TW/_ude_euc-tw1.txt","EUC-KR", 0.99, "Korean"),
+    ("tests/data/EUC-TW/_ude_euc-tw1.txt","EUC-TW", 0.99, "Chinese"),
     ("tests/data/GB2312/14.blog.westca.com.xml","GB2312", 0.99, "Chinese"),
     ("tests/data/GB2312/2.blog.westca.com.xml","GB2312", 0.99, "Chinese"),
     ("tests/data/GB2312/acnnewswire.net.xml","GB2312", 0.99, "Chinese"),
