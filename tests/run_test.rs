@@ -398,11 +398,9 @@ fn basic_test() {
         let mut reader: Vec<u8> = Vec::new();
         fh.read_to_end(&mut reader).expect("Could not read file");
         let result = chardet::detect(&reader);
-        println!("{:?}", item);
-        println!("{:?}", result);
-        assert!(result.0 == item.1, format!("Encoding Expected:[{}] Result:[{}]", item.1, result.0));
-        assert!(result.1 >= item.2, format!("Confidence Expected:[{}] Result:[{}]", item.2, result.1));
-        assert!(result.2 == item.3, format!("Language Expected:[{}] Result:[{}]", item.3, result.2));
+        assert!(result.0 == item.1, "Encoding Expected:[{}] Result:[{}]", item.1, result.0);
+        assert!(result.1 >= item.2, "Confidence Expected:[{}] Result:[{}]", item.2, result.1);
+        assert!(result.2 == item.3, "Language Expected:[{}] Result:[{}]", item.3, result.2);
     }
 }
 
@@ -417,11 +415,9 @@ fn reuse_test() {
         fh.read_to_end(&mut reader).expect("Could not read file");
         detector.feed(&reader);
         let result = detector.close();
-        println!("{:?}", item);
-        println!("{:?}", result);
-        assert!(result.0 == item.1, format!("Encoding Expected:[{}] Result:[{}]", item.1, result.0));
-        assert!(result.1 >= item.2, format!("Confidence Expected:[{}] Result:[{}]", item.2, result.1));
-        assert!(result.2 == item.3, format!("Language Expected:[{}] Result:[{}]", item.3, result.2));
+        assert!(result.0 == item.1, "Encoding Expected:[{}] Result:[{}]", item.1, result.0);
+        assert!(result.1 >= item.2, "Confidence Expected:[{}] Result:[{}]", item.2, result.1);
+        assert!(result.2 == item.3, "Language Expected:[{}] Result:[{}]", item.3, result.2);
         detector.reset();
     }
 }
@@ -431,9 +427,9 @@ fn bufreader_test() {
     let file = OpenOptions::new().read(true).open("tests/data/CP932/www2.chuo-u.ac.jp-suishin.xml").expect("Could not open file",);
     let mut fin = BufReader::new(file);
     let result = chardet::detect(fin.fill_buf().unwrap());
-    assert!(result.0 == "CP932", format!("Encoding Expected:[CP932] Result:[{}]", result.0));
-    assert!(result.1 >= 0.99, format!("Confidence Expected:[0.99] Result:[{}]", result.1));
-    assert!(result.2 == "Japanese", format!("Language Expected:[Japanese] Result:[{}]", result.2));
+    assert!(result.0 == "CP932", "Encoding Expected:[CP932] Result:[{}]", result.0);
+    assert!(result.1 >= 0.99, "Confidence Expected:[0.99] Result:[{}]", result.1);
+    assert!(result.2 == "Japanese", "Language Expected:[Japanese] Result:[{}]", result.2);
 }
 
 #[test]
@@ -450,6 +446,6 @@ fn translate_test() {
     ];
     for item in char2enc {
         let enc = chardet::charset2encoding(&item.0);
-        assert!( enc == item.1, format!("Charset: [{}] Expected Encoding: [{}] Result: [{}]", item.0, item.1, enc));
+        assert!( enc == item.1, "Charset: [{}] Expected Encoding: [{}] Result: [{}]", item.0, item.1, enc);
     }
 }

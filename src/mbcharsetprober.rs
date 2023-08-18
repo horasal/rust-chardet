@@ -5,7 +5,7 @@ use super::charsetprober::CharsetProber;
 
 pub struct MultiByteCharsetProber<'a> {
     pub m_state: ProbingState,
-    pub m_distribution_analyzer: Option<Box<CharDistributionAnalysis>>,
+    pub m_distribution_analyzer: Option<Box<dyn CharDistributionAnalysis>>,
     pub m_coding_sm: Option<CodingStateMachine<'a>>,
     pub m_last_char: [u8; 2],
 }

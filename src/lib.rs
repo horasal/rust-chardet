@@ -40,8 +40,8 @@ pub struct UniversalDetector {
     m_detected_charset: String,
     m_detected_confidence: f32,
     m_detected_language: String,
-    m_esc_charset_prober: Option<Box<charsetprober::CharsetProber>>,
-    m_charset_probers: Vec<Box<charsetprober::CharsetProber>>,
+    m_esc_charset_prober: Option<Box<dyn charsetprober::CharsetProber>>,
+    m_charset_probers: Vec<Box<dyn charsetprober::CharsetProber>>,
 }
 
 impl UniversalDetector {
